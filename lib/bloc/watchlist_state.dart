@@ -19,7 +19,6 @@ class WatchlistReady extends WatchlistState {
   final List<Watchlist> watchlists;
   final int activeTabIndex;
 
-  // Header index values (live ticking)
   final double sensexPrice;
   final double sensexChange;
   final double sensexChangePercent;

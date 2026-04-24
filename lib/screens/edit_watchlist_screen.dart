@@ -6,9 +6,9 @@ import '../models/stock.dart';
 import '../models/watchlist.dart';
 
 class EditWatchlistScreen extends StatefulWidget {
-  final Watchlist watchlist;
 
   const EditWatchlistScreen({super.key, required this.watchlist});
+  final Watchlist watchlist;
 
   @override
   State<EditWatchlistScreen> createState() => _EditWatchlistScreenState();
@@ -81,7 +81,6 @@ class _EditWatchlistScreenState extends State<EditWatchlistScreen> {
         children: [
           const Divider(height: 1, color: Color(0xFFEEEEEE)),
 
-          // Watchlist name field
           Container(
             margin: const EdgeInsets.fromLTRB(16, 12, 16, 8),
             padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 4),
@@ -125,12 +124,11 @@ class _EditWatchlistScreenState extends State<EditWatchlistScreen> {
             ),
           ),
 
-          // Reorderable stock list
           Expanded(
             child: ReorderableListView.builder(
               itemCount: _stocks.length,
               onReorder: _onReorder,
-              buildDefaultDragHandles: false, // we supply our own handle
+              buildDefaultDragHandles: false,
               proxyDecorator: (child, index, animation) {
                 return Material(
                   elevation: 4,
@@ -151,12 +149,10 @@ class _EditWatchlistScreenState extends State<EditWatchlistScreen> {
             ),
           ),
 
-          // Bottom buttons
           Padding(
             padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
             child: Column(
               children: [
-                // Edit other watchlists
                 SizedBox(
                   width: double.infinity,
                   height: 48,
@@ -211,9 +207,6 @@ class _EditWatchlistScreenState extends State<EditWatchlistScreen> {
 }
 
 class _EditStockRow extends StatelessWidget {
-  final int index;
-  final Stock stock;
-  final VoidCallback onDelete;
 
   const _EditStockRow({
     super.key,
@@ -221,6 +214,9 @@ class _EditStockRow extends StatelessWidget {
     required this.stock,
     required this.onDelete,
   });
+  final int index;
+  final Stock stock;
+  final VoidCallback onDelete;
 
   @override
   Widget build(BuildContext context) {
@@ -232,7 +228,6 @@ class _EditStockRow extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
             child: Row(
               children: [
-                // Drag handle — only this triggers reorder drag
                 ReorderableDragStartListener(
                   index: index,
                   child: const Icon(Icons.drag_handle_rounded,
@@ -240,7 +235,6 @@ class _EditStockRow extends StatelessWidget {
                 ),
                 const SizedBox(width: 16),
 
-                // Stock name
                 Expanded(
                   child: Text(
                     stock.symbol,
@@ -252,7 +246,6 @@ class _EditStockRow extends StatelessWidget {
                   ),
                 ),
 
-                // Delete icon
                 GestureDetector(
                   onTap: onDelete,
                   child: const Icon(Icons.delete,

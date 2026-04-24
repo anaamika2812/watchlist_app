@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import '../models/stock.dart';
 
 class StockRow extends StatelessWidget {
-  final Stock stock;
 
   const StockRow({super.key, required this.stock});
+  final Stock stock;
 
   @override
   Widget build(BuildContext context) {

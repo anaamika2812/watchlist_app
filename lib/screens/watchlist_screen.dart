@@ -39,7 +39,6 @@ class WatchlistScreen extends StatelessWidget {
                       children: state.watchlists.asMap().entries.map((entry) {
                         final wl = entry.value;
                         return GestureDetector(
-                          // Long press any item → navigate to edit screen
                           onLongPress: () {},
                           child: ListView.builder(
                             itemCount: wl.stocks.length,
@@ -82,7 +81,6 @@ class WatchlistScreen extends StatelessWidget {
       ),
       child: Row(
         children: [
-          // SENSEX
           Expanded(
             child: _HeaderIndex(
               label: 'SENSEX 18TH SEP 8...',
@@ -93,7 +91,6 @@ class WatchlistScreen extends StatelessWidget {
             ),
           ),
           Container(width: 1, height: 60, color: const Color(0xFFEEEEEE)),
-          // NIFTY BANK
           Expanded(
             child: Row(
               children: [

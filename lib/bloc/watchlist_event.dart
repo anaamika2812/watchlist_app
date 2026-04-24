@@ -7,12 +7,10 @@ abstract class WatchlistEvent extends Equatable {
   List<Object?> get props => [];
 }
 
-/// Load all watchlists on startup.
 class WatchlistStarted extends WatchlistEvent {
   const WatchlistStarted();
 }
 
-/// Switch the active watchlist tab.
 class WatchlistTabChanged extends WatchlistEvent {
   final int tabIndex;
   const WatchlistTabChanged(this.tabIndex);
@@ -21,12 +19,10 @@ class WatchlistTabChanged extends WatchlistEvent {
   List<Object?> get props => [tabIndex];
 }
 
-/// Tick: update live prices for header indices + active watchlist stocks.
 class WatchlistTickerUpdated extends WatchlistEvent {
   const WatchlistTickerUpdated();
 }
 
-/// Reorder stocks inside a watchlist (from Edit screen).
 class WatchlistReordered extends WatchlistEvent {
   final String watchlistId;
   final int oldIndex;
@@ -42,7 +38,6 @@ class WatchlistReordered extends WatchlistEvent {
   List<Object?> get props => [watchlistId, oldIndex, newIndex];
 }
 
-/// Delete a stock from a watchlist (from Edit screen).
 class WatchlistStockDeleted extends WatchlistEvent {
   final String watchlistId;
   final String stockId;
@@ -67,7 +62,6 @@ class WatchlistRenamed extends WatchlistEvent {
   List<Object?> get props => [watchlistId, newName];
 }
 
-/// Save edits from the Edit screen back to the main state.
 class WatchlistSaved extends WatchlistEvent {
   final String watchlistId;
   final String newName;
